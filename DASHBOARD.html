@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Healthcare Diagnosis Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+display:flex;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:260px;
+height:100vh;
+background:#0f172a;
+color:white;
+position:fixed;
+padding:30px 20px;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+margin-bottom:40px;
+color:#4fd1c5;
+}
+
+.menu{
+list-style:none;
+}
+
+.menu li{
+padding:15px;
+margin:8px 0;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.menu li:hover,
+.active{
+background:#1e293b;
+}
+
+.menu li i{
+margin-right:10px;
+}
+
+/* Main Content */
+
+.main{
+margin-left:260px;
+padding:30px;
+width:100%;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.header h1{
+color:#0f172a;
+}
+
+.user{
+background:white;
+padding:10px 20px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+/* Stats */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:30px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 6px 15px rgba(0,0,0,.06);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card h3{
+font-size:15px;
+color:#64748b;
+margin-bottom:10px;
+}
+
+.card .number{
+font-size:32px;
+font-weight:700;
+color:#0f172a;
+}
+
+.success{
+color:#10b981;
+}
+
+.warning{
+color:#f59e0b;
+}
+
+.danger{
+color:#ef4444;
+}
+
+/* Disease Cards */
+
+.section-title{
+margin-bottom:20px;
+font-size:22px;
+font-weight:600;
+color:#0f172a;
+}
+
+.disease-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-bottom:30px;
+}
+
+.disease-card{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+.disease-card h3{
+margin-bottom:10px;
+}
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+margin-top:10px;
+}
+
+.low{
+background:#dcfce7;
+color:#15803d;
+}
+
+.medium{
+background:#fef3c7;
+color:#b45309;
+}
+
+.high{
+background:#fee2e2;
+color:#dc2626;
+}
+
+/* AI Summary */
+
+.ai-summary{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 6px 15px rgba(0,0,0,.06);
+margin-bottom:30px;
+}
+
+.ai-summary h2{
+margin-bottom:15px;
+color:#0f172a;
+}
+
+.ai-summary p{
+line-height:1.8;
+color:#475569;
+}
+
+/* Table */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,.06);
+}
+
+th{
+background:#0f172a;
+color:white;
+padding:15px;
+text-align:left;
+}
+
+td{
+padding:15px;
+border-bottom:1px solid #e2e8f0;
+}
+
+tr:hover{
+background:#f8fafc;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.sidebar{
+width:80px;
+}
+
+.logo{
+font-size:14px;
+}
+
+.menu li{
+font-size:12px;
+padding:10px;
+}
+
+.main{
+margin-left:80px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<div class="logo">AI Health</div>
+
+<ul class="menu">
+<li class="active">🏥 Dashboard</li>
+<li>🧠 AI Diagnosis</li>
+<li>❤️ Heart Disease</li>
+<li>🩸 Diabetes</li>
+<li>🫁 Lung Disease</li>
+<li>🧬 Cancer Detection</li>
+<li>📋 Patients</li>
+<li>⚙ Settings</li>
+</ul>
+</div>
+
+<div class="main">
+
+<div class="header">
+<h1>Healthcare AI Diagnosis Dashboard</h1>
+<div class="user">Dr. Admin</div>
+</div>
+
+<div class="stats">
+
+<div class="card">
+<h3>Total Patients</h3>
+<div class="number">12,548</div>
+</div>
+
+<div class="card">
+<h3>AI Diagnoses</h3>
+<div class="number success">8,923</div>
+</div>
+
+<div class="card">
+<h3>High Risk Cases</h3>
+<div class="number danger">324</div>
+</div>
+
+<div class="card">
+<h3>Accuracy Rate</h3>
+<div class="number warning">98.7%</div>
+</div>
+
+</div>
+
+<h2 class="section-title">Disease Prediction Modules</h2>
+
+<div class="disease-grid">
+
+<div class="disease-card">
+<h3>❤️ Heart Disease</h3>
+<p>AI risk assessment based on ECG and clinical data.</p>
+<span class="badge low">Active</span>
+</div>
+
+<div class="disease-card">
+<h3>🩸 Diabetes</h3>
+<p>Blood glucose and lifestyle prediction model.</p>
+<span class="badge low">Active</span>
+</div>
+
+<div class="disease-card">
+<h3>🫁 Lung Disease</h3>
+<p>X-ray powered AI disease detection.</p>
+<span class="badge medium">Monitoring</span>
+</div>
+
+<div class="disease-card">
+<h3>🧬 Cancer Detection</h3>
+<p>Early-stage cancer prediction using AI.</p>
+<span class="badge high">Priority</span>
+</div>
+
+</div>
+
+<div class="ai-summary">
+<h2>AI Diagnosis Summary</h2>
+<p>
+The AI Healthcare Engine continuously analyzes patient records,
+medical imaging, laboratory reports, and clinical symptoms.
+Current system performance shows 98.7% prediction accuracy with
+real-time monitoring of high-risk patients. Automated alerts are
+generated for abnormal diagnostic patterns and critical disease
+indicators.
+</p>
+</div>
+
+<h2 class="section-title">Recent Diagnosis Activity</h2>
+
+<table>
+<thead>
+<tr>
+<th>Patient ID</th>
+<th>Disease</th>
+<th>Risk Score</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>P-1025</td>
+<td>Heart Disease</td>
+<td>87%</td>
+<td style="color:red;">High Risk</td>
+<td>06 Aug 2026</td>
+</tr>
+
+<tr>
+<td>P-1056</td>
+<td>Diabetes</td>
+<td>65%</td>
+<td style="color:orange;">Moderate</td>
+<td>06 Aug 2026</td>
+</tr>
+
+<tr>
+<td>P-1098</td>
+<td>Lung Disease</td>
+<td>28%</td>
+<td style="color:green;">Low Risk</td>
+<td>06 Aug 2026</td>
+</tr>
+
+<tr>
+<td>P-1104</td>
+<td>Cancer Detection</td>
+<td>91%</td>
+<td style="color:red;">Critical</td>
+<td>06 Aug 2026</td>
+</tr>
+</tbody>
+
+</table>
+
+</div>
+
+
+
+</body>
+</html>
